@@ -15,7 +15,10 @@
  */
 package com.ekito.simpleKML.model;
 
+import java.util.List;
+
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 
 /**
  * A Polygon is defined by an outer boundary and 0 or more inner boundaries. The boundaries, in turn, are defined by LinearRings. When a Polygon is extruded, its boundaries are connected to the ground to form additional polygons, which gives the appearance of a building or a box. Extruded Polygons use {@link PolyStyle} for their color, color mode, and fill.
@@ -41,8 +44,8 @@ public class Polygon extends Geometry {
 	private Boundary outerBoundaryIs;
 
 	/** The inner boundary is. */
-	@Element(required=false)
-	private Boundary innerBoundaryIs;
+	@ElementList(entry="innerBoundaryIs", inline=true, type=Boundary.class, required=false)
+	private List<Boundary> innerBoundaryIsList;
 
 	/**
 	 * Gets the extrude.
@@ -121,8 +124,8 @@ public class Polygon extends Geometry {
 	 *
 	 * @return the inner boundary is
 	 */
-	public Boundary getInnerBoundaryIs() {
-		return innerBoundaryIs;
+	public List<Boundary> getInnerBoundaryIsList() {
+		return innerBoundaryIsList;
 	}
 
 	/**
@@ -130,7 +133,7 @@ public class Polygon extends Geometry {
 	 *
 	 * @param innerBoundaryIs the new inner boundary is
 	 */
-	public void setInnerBoundaryIs(Boundary innerBoundaryIs) {
-		this.innerBoundaryIs = innerBoundaryIs;
+	public void setInnerBoundaryIs(List<Boundary> innerBoundaryIsList) {
+		this.innerBoundaryIsList = innerBoundaryIsList;
 	}
 }
