@@ -17,7 +17,6 @@ package com.ekito.simpleKML.model;
 
 import java.util.List;
 
-import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
 /**
