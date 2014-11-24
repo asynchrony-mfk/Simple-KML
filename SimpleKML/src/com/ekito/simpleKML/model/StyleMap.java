@@ -26,7 +26,7 @@ import org.simpleframework.xml.ElementList;
 public class StyleMap extends StyleSelector {
 
 	/** The pair list. */
-	@ElementList(entry="Pair", inline=false, type=Pair.class, required=false)
+	@ElementList(entry="Pair", inline=true, type=Pair.class, required=false)
 	private List<Pair> pairList;
 
 	/**
