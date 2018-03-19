@@ -15,10 +15,11 @@
  */
 package com.ekito.simpleKML.model;
 
-import java.util.List;
-
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Namespace;
+
+import java.util.List;
 
 /**
  * This element is used in conjunction with {@link Schema} to add typed custom data to a KML Feature. The Schema element (identified by the schemaUrl attribute) declares the custom data type. The actual data objects ("instances" of the custom data) are defined using the SchemaData element.
@@ -33,6 +34,11 @@ public class SchemaData {
 	/** The simple data list. */
 	@ElementList(entry="SimpleData", inline=true, required=false)
 	private List<SimpleData> simpleDataList;
+
+	/** schemaDataExtension arbitrary list. Only supports SimpleArrayData for now. */
+	@Namespace(prefix="gx")
+	@ElementList(entry = "SimpleArrayData", inline=true, type=SimpleArrayData.class, required=false)
+	private List<? extends java.lang.Object> schemaDataExtension;
 
 	/**
 	 * Gets the schema url.
@@ -68,5 +74,23 @@ public class SchemaData {
 	 */
 	public void setSimpleDataList(List<SimpleData> simpleDataList) {
 		this.simpleDataList = simpleDataList;
+	}
+
+	/**
+	 * Gets the schema data extension list.
+	 *
+	 * @return the schema data extension list.
+	 */
+	public List<? extends java.lang.Object> getSchemaDataExtension() {
+		return schemaDataExtension;
+	}
+
+	/**
+	 * Sets the schema data extension list.
+	 *
+	 * @param schemaDataExtension the new schema data extension list.
+	 */
+	public void setSchemaDataExtension(List<? extends java.lang.Object> schemaDataExtension) {
+		this.schemaDataExtension = schemaDataExtension;
 	}
 }
