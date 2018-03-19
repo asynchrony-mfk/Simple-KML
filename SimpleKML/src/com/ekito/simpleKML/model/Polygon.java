@@ -133,7 +133,7 @@ public class Polygon extends Geometry {
 	 *
 	 * @param innerBoundaryIs the new inner boundary is
 	 */
-	public void setInnerBoundaryIs(List<Boundary> innerBoundaryIsList) {
-		this.innerBoundaryIsList = innerBoundaryIsList;
+	public void setInnerBoundaryIsList(List<Boundary> innerBoundaryIs) {
+		this.innerBoundaryIsList = innerBoundaryIs;
 	}
 }
