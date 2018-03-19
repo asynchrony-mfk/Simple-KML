@@ -1,12 +1,12 @@
 /**
  * Copyright 2012 Ekito - http://www.ekito.fr/
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -15,7 +15,10 @@
  */
 package com.ekito.simpleKML.model;
 
+import java.util.List;
+
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 
 /**
  * Specifies how a Feature is displayed in the list view. The list view is a hierarchy of containers and children; in Google Earth, this is the Places panel.
@@ -29,10 +32,10 @@ public class ListStyle extends ColorStyle {
 	/** The bg color. */
 	@Element(required=false)
 	private String bgColor;
-
-	/** The item icon. */
-	@Element(name="ItemIcon",required=false)
-	private Icon itemIcon;
+	
+	/** The item icon list. */
+	@ElementList(name="ItemIcon", entry="ItemIcon", inline=true, type=Icon.class, required=false)
+	private List<Icon> itemIconList;
 
 	/**
 	 * Gets the list item type.
@@ -75,8 +78,8 @@ public class ListStyle extends ColorStyle {
 	 *
 	 * @return the item icon
 	 */
-	public Icon getItemIcon() {
-		return itemIcon;
+	public List<Icon> getItemIcon() {
+		return itemIconList;
 	}
 
 	/**
@@ -84,7 +87,7 @@ public class ListStyle extends ColorStyle {
 	 *
 	 * @param itemIcon the new item icon
 	 */
-	public void setItemIcon(Icon itemIcon) {
-		this.itemIcon = itemIcon;
+	public void setItemIcon(List<Icon> itemIcon) {
+		this.itemIconList = itemIcon;
 	}
 }
