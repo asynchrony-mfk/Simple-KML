@@ -28,7 +28,7 @@ public class SimpleData {
 	private String name;
 	
 	/** The value. */
-	@Text
+	@Text(required=false)
 	private String value;
 
 	/**
