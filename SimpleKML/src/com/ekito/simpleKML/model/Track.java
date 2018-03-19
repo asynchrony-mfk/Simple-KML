@@ -15,7 +15,10 @@
  */
 package com.ekito.simpleKML.model;
 
+import java.util.List;
+
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Namespace;
 
 /**
@@ -31,18 +34,18 @@ public class Track extends Geometry {
 	private String altitudeMode;
 
 	/** The when. */
-	@Element(required=false)
-	private String when;
+	@ElementList(entry="when", inline=true, type=String.class, required=false)
+	private List<String> whenList;
 
 	/** The coord. */
-	@Element(required=false)
+	@ElementList(entry="coord", inline=true, type=String.class, required=false)
 	@Namespace(prefix="gx")
-	private String coord;
+	private List<String> coordList;
 
 	/** The angles. */
-	@Element(required=false)
+	@ElementList(entry="angles", inline=true, type=String.class, required=false)
 	@Namespace(prefix="gx")
-	private String angles;
+	private List<String> angleList;
 
 	/** The model. */
 	@Element(name="Model",required=false)
@@ -75,17 +78,17 @@ public class Track extends Geometry {
 	 *
 	 * @return the when
 	 */
-	public String getWhen() {
-		return when;
+	public List<String> getWhenList() {
+		return whenList;
 	}
 
 	/**
-	 * Sets the when.
+	 * Sets the whenList.
 	 *
-	 * @param when the new when
+	 * @param when the new whenList
 	 */
-	public void setWhen(String when) {
-		this.when = when;
+	public void setWhenList(List<String> when) {
+		this.whenList = when;
 	}
 
 	/**
@@ -93,17 +96,17 @@ public class Track extends Geometry {
 	 *
 	 * @return the coord
 	 */
-	public String getCoord() {
-		return coord;
+	public List<String> getCoordList() {
+		return coordList;
 	}
 
 	/**
 	 * Sets the coord.
 	 *
-	 * @param coord the new coord
+	 * @param coordList the new coord
 	 */
-	public void setCoord(String coord) {
-		this.coord = coord;
+	public void setCoordList(List<String> coordList) {
+		this.coordList = coordList;
 	}
 
 	/**
@@ -111,17 +114,17 @@ public class Track extends Geometry {
 	 *
 	 * @return the angles
 	 */
-	public String getAngles() {
-		return angles;
+	public List<String> getAngleList() {
+		return angleList;
 	}
 
 	/**
 	 * Sets the angles.
 	 *
-	 * @param angles the new angles
+	 * @param angleList the new angles
 	 */
-	public void setAngles(String angles) {
-		this.angles = angles;
+	public void setAngleList(List<String> angleList) {
+		this.angleList = angleList;
 	}
 
 	/**
