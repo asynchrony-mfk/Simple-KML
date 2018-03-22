@@ -17,42 +17,44 @@ package com.ekito.simpleKML.model;
 
 import java.util.List;
 
+import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.ElementListUnion;
+import org.simpleframework.xml.ElementUnion;
 
 /**
  * A Placemark is a {@link Feature} with associated {@link Geometry}. In Google Earth, a Placemark appears as a list item in the Places panel. A Placemark with a Point has an icon associated with it that marks a point on the Earth in the 3D viewer. (In the Google Earth 3D viewer, a Point Placemark is the only object you can click or roll over. Other Geometry objects do not have an icon in the 3D viewer. To give the user something to click in the 3D viewer, you would need to create a MultiGeometry object that contains both a Point and the other Geometry object.)
  */
 public class Placemark extends Feature {
 
-	/** The geometry list. */
-	@ElementListUnion({
-		@ElementList(entry="Point", inline=true, type=Point.class, required=false),
-		@ElementList(entry="LineString", inline=true, type=LineString.class, required=false),
-		@ElementList(entry="LinearRing", inline=true, type=LinearRing.class, required=false),
-		@ElementList(entry="Polygon", inline=true, type=Polygon.class, required=false),
-		@ElementList(entry="MultiGeometry", inline=true, type=MultiGeometry.class, required=false),
-		@ElementList(entry="MultiTrack", inline=true, type=MultiTrack.class, required=false),
-		@ElementList(entry="Model", inline=true, type=Model.class, required=false),
-		@ElementList(entry="Track", inline=true, type=Track.class, required=false)
+	/** The geometry. */
+	@ElementUnion({
+		@Element(name="Point", type=Point.class, required=false),
+		@Element(name="LineString", type=LineString.class, required=false),
+		@Element(name="LinearRing", type=LinearRing.class, required=false),
+		@Element(name="Polygon", type=Polygon.class, required=false),
+		@Element(name="MultiGeometry", type=MultiGeometry.class, required=false),
+		@Element(name="MultiTrack", type=MultiTrack.class, required=false),
+		@Element(name="Model", type=Model.class, required=false),
+		@Element(name="Track", type=Track.class, required=false)
 	})
-	private List<Geometry> geometryList;
+	private Geometry geometry;
 
 	/**
-	 * Gets the geometry list.
+	 * Gets the geometry.
 	 *
-	 * @return the geometry list
+	 * @return the geometry
 	 */
-	public List<Geometry> getGeometryList() {
-		return geometryList;
+	public Geometry getGeometry() {
+		return geometry;
 	}
 
 	/**
-	 * Sets the geometry list.
+	 * Sets the geometry.
 	 *
-	 * @param geometryList the new geometry list
+	 * @param geometry the new geometry
 	 */
-	public void setGeometryList(List<Geometry> geometryList) {
-		this.geometryList = geometryList;
+	public void setGeometry(Geometry geometry) {
+		this.geometry = geometry;
 	}
 }
