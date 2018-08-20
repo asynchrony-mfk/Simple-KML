@@ -22,47 +22,83 @@ import org.simpleframework.xml.Element;
  */
 public class PolyStyle extends ColorStyle {
 
-	/** The fill. */
-	@Element(required=false)
-	private Integer fill;
+    @Element(required=false)
+    private String fill;
 
-	/** The outline. */
-	@Element(required=false)
-	private Integer outline;
+    @Element(required=false)
+    private String outline;
 
-	/**
-	 * Gets the fill.
-	 *
-	 * @return the fill
-	 */
-	public Integer getFill() {
-		return fill;
-	}
+    /**
+     * Gets the fill.
+     *
+     * @return the fill
+     */
+    public Boolean getFill() {
+        if (fill != null)
+            return BooleanUtil.valueOf(fill);
+        else
+            return Boolean.FALSE;
+    }
 
-	/**
-	 * Sets the fill.
-	 *
-	 * @param fill the new fill
-	 */
-	public void setFill(Integer fill) {
-		this.fill = fill;
-	}
+    /**
+     * Sets the fill.
+     *
+     * @param fill the new fill
+     */
+    public void setFill(Boolean fill) {
+        if (fill != null)
+            this.fill = fill.toString();
+        else
+            this.fill = null;
+    }
 
-	/**
-	 * Gets the outline.
-	 *
-	 * @return the outline
-	 */
-	public Integer getOutline() {
-		return outline;
-	}
+    /**
+     * Sets the fill.
+     *
+     * @param fill the new fill
+     */
+    public void setFill(Integer fill) {
+        if (fill != null)
+            this.fill = Boolean.toString(fill == 1);
+        else
+            this.fill = null;
+    }
 
-	/**
-	 * Sets the outline.
-	 *
-	 * @param outline the new outline
-	 */
-	public void setOutline(Integer outline) {
-		this.outline = outline;
-	}
+
+    /**
+     * Gets the outline.
+     *
+     * @return the outline
+     */
+    public Boolean getOutline() {
+        if (outline != null)
+            return BooleanUtil.valueOf(outline);
+        else
+            return Boolean.FALSE;
+    }
+
+    /**
+     * Sets the outline.
+     *
+     * @param outline the new outline
+     */
+    public void setOutline(Boolean outline) {
+        if (outline != null)
+            this.outline = outline.toString();
+        else
+            this.outline = null;
+    }
+
+    /**
+     * Sets the outline.
+     *
+     * @param outline the new outline
+     */
+    public void setOutline(Integer outline) {
+        if (outline != null)
+            this.outline = Boolean.toString(outline == 1);
+        else
+            this.outline = null;
+    }
+
 }

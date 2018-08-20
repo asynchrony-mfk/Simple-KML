@@ -1,5 +1,5 @@
 group 'com.asynchrony.mfk'
-version '1.3'
+version '1.4'
 
 apply plugin: 'java'
 

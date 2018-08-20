@@ -28,13 +28,13 @@ public class LinearRing extends Geometry {
 	@Namespace(prefix="gx")
 	private Integer altitudeOffset;
 
-	/** The extrude. */
-	@Element(required=false)
-	private Integer extrude;
+    /** The extrude. */
+    @Element(required=false)
+    private String extrude;       // boolean 0/1 false/true
 
-	/** The tessellate. */
-	@Element(required=false)
-	private Integer tessellate;
+    /** The tessellate. */
+    @Element(required=false)
+    private String tessellate;    // boolean 0/1 false/true
 
 	/** The altitude mode. */
 	@Element(required=false)
@@ -62,41 +62,79 @@ public class LinearRing extends Geometry {
 		this.altitudeOffset = altitudeOffset;
 	}
 
-	/**
-	 * Gets the extrude.
-	 *
-	 * @return the extrude
-	 */
-	public Integer getExtrude() {
-		return extrude;
-	}
+    /**
+     * Gets the extrude.
+     *
+     * @return the extrude
+     */
+    public Boolean getExtrude() {
+        if (extrude != null)
+            return BooleanUtil.valueOf(extrude);
+        else
+            return Boolean.FALSE;
+    }
 
-	/**
-	 * Sets the extrude.
-	 *
-	 * @param extrude the new extrude
-	 */
-	public void setExtrude(Integer extrude) {
-		this.extrude = extrude;
-	}
+    /**
+     * Sets the extrude.
+     *
+     * @param extrude the new extrude
+     */
+    public void setExtrude(Boolean extrude) {
+        if (extrude != null)
+             this.extrude = extrude.toString();
+        else
+             this.extrude = null;
+    }
 
-	/**
-	 * Gets the tessellate.
-	 *
-	 * @return the tessellate
-	 */
-	public Integer getTessellate() {
-		return tessellate;
-	}
+    /**
+     * Sets the extrude.
+     *
+     * @param extrude the new extrude
+     */
+    public void setExtrude(Integer extrude) {
+        if (extrude != null)
+             this.extrude = Boolean.toString(extrude == 1);
+        else
+             this.extrude = null;
+    }
 
-	/**
-	 * Sets the tessellate.
-	 *
-	 * @param tessellate the new tessellate
-	 */
-	public void setTessellate(Integer tessellate) {
-		this.tessellate = tessellate;
-	}
+
+    /**
+     * Gets the tessellate.
+     *
+     * @return the tessellate
+     */
+    public Boolean getTessellate() {
+        if (tessellate != null)
+            return BooleanUtil.valueOf(tessellate);
+        else
+            return Boolean.FALSE;
+    }
+
+    /**
+     * Sets the tessellate.
+     *
+     * @param tessellate the new tessellate
+     */
+    public void setTessellate(Boolean tessellate) {
+        if (tessellate != null)
+             this.tessellate = tessellate.toString();
+        else
+             this.tessellate = null;
+    }
+
+
+    /**
+     * Sets the tessellate.
+     *
+     * @param tessellate the new tessellate
+     */
+    public void setTessellate(Integer tessellate) {
+        if (tessellate != null)
+             this.tessellate = Boolean.toString(tessellate == 1);
+        else
+             this.tessellate = null;
+    }
 
 	/**
 	 * Gets the altitude mode.

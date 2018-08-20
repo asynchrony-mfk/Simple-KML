@@ -22,9 +22,8 @@ import org.simpleframework.xml.Element;
  */
 public class Point extends Geometry {
 
-	/** The extrude. */
-	@Element(required=false)
-	private Integer extrude;
+    @Element(required=false)
+    private String extrude;
 
 	/** The altitude mode. */
 	@Element(required=false)
@@ -34,23 +33,41 @@ public class Point extends Geometry {
 	@Element(required=false)
 	private Coordinate coordinates;
 
-	/**
-	 * Gets the extrude.
-	 *
-	 * @return the extrude
-	 */
-	public Integer getExtrude() {
-		return extrude;
-	}
+    /**
+     * Gets the extrude.
+     *
+     * @return the extrude
+     */
+    public Boolean getExtrude() {
+        if (extrude != null)
+             return BooleanUtil.valueOf(extrude);
+        else
+             return Boolean.FALSE;
+    }
 
-	/**
-	 * Sets the extrude.
-	 *
-	 * @param extrude the new extrude
-	 */
-	public void setExtrude(Integer extrude) {
-		this.extrude = extrude;
-	}
+    /**
+     * Sets the extrude.
+     *
+     * @param extrude the new extrude
+     */
+    public void setExtrude(Boolean extrude) {
+        if (extrude != null)
+            this.extrude = extrude.toString();
+        else
+            this.extrude = null;
+    }
+
+    /**
+     * Sets the extrude.
+     *
+     * @param extrude the new extrude
+     */
+    public void setExtrude(Integer extrude) {
+        if (extrude != null)
+             this.extrude = Boolean.toString(extrude == 1);
+        else
+            this.extrude = null;
+    }
 
 	/**
 	 * Gets the altitude mode.

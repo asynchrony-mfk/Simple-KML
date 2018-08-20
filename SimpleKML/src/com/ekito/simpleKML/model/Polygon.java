@@ -27,13 +27,11 @@ import org.simpleframework.xml.ElementList;
  */
 public class Polygon extends Geometry {
 
-	/** The extrude. */
-	@Element(required=false)
-	private Integer extrude;
+    @Element(required=false)
+    private String extrude;
 
-	/** The tessellate. */
-	@Element(required=false)
-	private Integer tessellate;
+    @Element(required=false)
+    private String tessellate;
 
 	/** The altitude mode. */
 	@Element(required=false)
@@ -43,45 +41,86 @@ public class Polygon extends Geometry {
 	@Element(required=true)
 	private Boundary outerBoundaryIs;
 
-	/** The inner boundary is. */
-	@ElementList(entry="innerBoundaryIs", inline=true, type=Boundary.class, required=false)
-	private List<Boundary> innerBoundaryIsList;
+    /** The inner boundary is. */
+    //BYOUNG https://github.com/Ekito/Simple-KML/issues/6
+    //@Element(required=false)
+    //private Boundary innerBoundaryIs;
+    /** The inner boundary is list. */
+    @ElementList(name="innerBoundaryIs", entry="innerBoundaryIs", inline=true, type=Boundary.class, required=false)
+    private List<Boundary> innerBoundaryIsList;
+    
+    /**
+     * Gets the extrude.
+     *
+     * @return the extrude
+     */
+    public Boolean getExtrude() {
+        if (extrude != null)
+             return BooleanUtil.valueOf(extrude);
+        else
+             return Boolean.FALSE;
+    }
 
-	/**
-	 * Gets the extrude.
-	 *
-	 * @return the extrude
-	 */
-	public Integer getExtrude() {
-		return extrude;
-	}
+    /**
+     * Sets the extrude.
+     *
+     * @param extrude the new extrude
+     */
+    public void setExtrude(Boolean extrude) {
+        if (extrude != null)
+            this.extrude = extrude.toString();
+        else
+            this.extrude = null;
+    }
 
-	/**
-	 * Sets the extrude.
-	 *
-	 * @param extrude the new extrude
-	 */
-	public void setExtrude(Integer extrude) {
-		this.extrude = extrude;
-	}
+    /**
+     * Sets the extrude.
+     *
+     * @param extrude the new extrude
+     */
+    public void setExtrude(Integer extrude) {
+        if (extrude != null)
+            this.extrude = Boolean.toString(extrude == 1);
+        else
+            this.extrude = null;
+    }
 
-	/**
-	 * Gets the tessellate.
-	 *
-	 * @return the tessellate
-	 */
-	public Integer getTessellate() {
-		return tessellate;
-	}
 
-	/**
-	 * Sets the tessellate.
-	 *
-	 * @param tessellate the new tessellate
-	 */
-	public void setTessellate(Integer tessellate) {
-		this.tessellate = tessellate;
-	}
+    /**
+     * Gets the tessellate.
+     *
+     * @return the tessellate
+     */
+    public Boolean getTessellate() {
+        if (tessellate != null)
+            return BooleanUtil.valueOf(tessellate);
+        else
+            return Boolean.FALSE;
+    }
+
+    /**
+     * Sets the tessellate.
+     *
+     * @param tessellate the new tessellate
+     */
+    public void setTessellate(Boolean tessellate) {
+         if (tessellate != null)
+             this.tessellate = tessellate.toString();
+         else
+             this.tessellate = null;
+    }
+
+    /**
+     * Sets the tessellate.
+     *
+     * @param tessellate the new tessellate
+     */
+    public void setTessellate(Integer tessellate) {
+         if (tessellate != null)
+            this.tessellate = Boolean.toString(tessellate == 1);
+         else
+             this.tessellate = null;
+    }
 
 	/**
 	 * Gets the altitude mode.

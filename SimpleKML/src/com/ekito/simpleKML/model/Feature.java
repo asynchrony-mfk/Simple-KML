@@ -36,12 +36,12 @@ public abstract class Feature extends Object {
 	private String name;
 
 	/** The visibility. */
-	@Element(required=false)
-	private Integer visibility;
+    @Element(required=false)
+    private String visibility;
 
 	/** The open. */
-	@Element(required=false)
-	private Integer open;
+    @Element(required=false)
+    private String open;
 
 	/** The author. */
 	@Element(required=false)
@@ -127,41 +127,78 @@ public abstract class Feature extends Object {
 		this.name = name;
 	}
 
-	/**
-	 * Gets the visibility.
-	 *
-	 * @return the visibility
-	 */
-	public Integer getVisibility() {
-		return visibility;
-	}
+    /**
+     * Gets the visibility.
+     *
+     * @return the visibility
+     */
+    public Boolean getVisibility() {
+        if (visibility != null)
+            return BooleanUtil.valueOf(visibility);
+        else
+            return Boolean.FALSE;
+    }
 
-	/**
-	 * Sets the visibility.
-	 *
-	 * @param visibility the new visibility
-	 */
-	public void setVisibility(Integer visibility) {
-		this.visibility = visibility;
-	}
+    /**
+     * Sets the visibility.
+     *
+     * @param visibility the new visibility
+     */
+    public void setVisibility(Boolean visibility) {
+        if (visibility != null)
+			this.visibility = visibility.toString();
+		else
+			this.visibility = null;
+    }
 
-	/**
-	 * Gets the open.
-	 *
-	 * @return the open
-	 */
-	public Integer getOpen() {
-		return open;
-	}
+    /**
+     * Sets the visibility.
+     *
+     * @param visibility the new visibility
+     */
+    public void setVisibility(Integer visibility) {
+        if (visibility != null)
+			this.visibility = Boolean.toString(visibility == 1);
+		else
+			this.visibility = null;
+    }
 
-	/**
-	 * Sets the open.
-	 *
-	 * @param open the new open
-	 */
-	public void setOpen(Integer open) {
-		this.open = open;
-	}
+
+    /**
+     * Gets the open.
+     *
+     * @return the open
+     */
+    public Boolean getOpen() {
+        if (open != null)
+            return BooleanUtil.valueOf(open);
+        return
+            false;
+    }
+
+    /**
+     * Sets the open.
+     *
+     * @param open the new open
+     */
+    public void setOpen(Boolean open) {
+        if (open != null)
+             this.open = open.toString();
+        else
+             this.open = null;
+    }
+
+    /**
+     * Sets the open.
+     *
+     * @param open the new open
+     */
+    public void setOpen(Integer open) {
+        if (open != null)
+            this.open = Boolean.toString(open == 1);
+        else
+            this.open = null;
+    }
 
 	/**
 	 * Gets the author.

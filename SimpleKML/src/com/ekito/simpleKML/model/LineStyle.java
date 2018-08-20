@@ -43,10 +43,10 @@ public class LineStyle extends ColorStyle {
 	@Namespace(prefix="gx")
 	private Float physicalWidth;
 
-	/** The label visibility. */
-	@Element(required=false)
-	@Namespace(prefix="gx")
-	private Integer labelVisibility;
+    /** The label visibility. */
+    @Element(required=false)
+    @Namespace(prefix="gx")
+    private String labelVisibility;      // boolean 0/1 false/true
 
 	/**
 	 * Gets the width.
@@ -120,21 +120,40 @@ public class LineStyle extends ColorStyle {
 		this.physicalWidth = physicalWidth;
 	}
 
-	/**
-	 * Gets the label visibility.
-	 *
-	 * @return the label visibility
-	 */
-	public Integer getLabelVisibility() {
-		return labelVisibility;
-	}
+    /**
+     * Gets the label visibility.
+     *
+     * @return the label visibility
+     */
+    public Boolean getLabelVisibility() {
+        if (labelVisibility != null)
+            return BooleanUtil.valueOf(labelVisibility);
+        else
+            return Boolean.FALSE;
+    }
 
-	/**
-	 * Sets the label visibility.
-	 *
-	 * @param labelVisibility the new label visibility
-	 */
-	public void setLabelVisibility(Integer labelVisibility) {
-		this.labelVisibility = labelVisibility;
-	}
+    /**
+     * Sets the label visibility.
+     *
+     * @param labelVisibility the new label visibility
+     */
+    public void setLabelVisibility(Boolean labelVisibility) {
+        if (labelVisibility != null)
+            this.labelVisibility = labelVisibility.toString();
+        else
+            this.labelVisibility = null;
+    }
+
+    /**
+     * Sets the label visibility.
+     *
+     * @param labelVisibility the new label visibility
+     */
+    public void setLabelVisibility(Integer labelVisibility) {
+        if (labelVisibility != null)
+            this.labelVisibility = Boolean.toString(labelVisibility == 1);
+        else
+            this.labelVisibility = null;
+    }
+
 }

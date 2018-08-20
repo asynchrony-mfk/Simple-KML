@@ -22,54 +22,90 @@ import org.simpleframework.xml.Element;
  * References a KML file or KMZ archive on a local or remote network. Use the {@link Link} element to specify the location of the KML file. Within that element, you can define the refresh options for updating the file, based on time and camera change. NetworkLinks can be used in combination with Regions to handle very large datasets efficiently.
  */
 public class NetworkLink extends Feature {
-	
-	/** The refresh visibility. */
-	@Element(required=false)
-	private Integer refreshVisibility;
+    /** The refresh visibility. */
+    @Element(required=false)
+    private String refreshVisibility;     // boolean 0/1 false/true
 
-	/** The fly to view. */
-	@Element(required=false)
-	private Integer flyToView;
+    /** The fly to view. */
+    @Element(required=false)
+    private String flyToView;             // boolean 0/1 false/true
 
 	/** The link. */
 	@Element(name="Link",required=false)
 	private Link link;
 
-	/**
-	 * Gets the refresh visibility.
-	 *
-	 * @return the refresh visibility
-	 */
-	public Integer getRefreshVisibility() {
-		return refreshVisibility;
-	}
+    /**
+     * Gets the refresh visibility.
+     *
+     * @return the refresh visibility
+     */
+    public Boolean getRefreshVisibility() {
+        if (refreshVisibility != null)
+            return BooleanUtil.valueOf(refreshVisibility);
+        else
+            return Boolean.FALSE;
+    }
 
-	/**
-	 * Sets the refresh visibility.
-	 *
-	 * @param refreshVisibility the new refresh visibility
-	 */
-	public void setRefreshVisibility(Integer refreshVisibility) {
-		this.refreshVisibility = refreshVisibility;
-	}
+    /**
+     * Sets the refresh visibility.
+     *
+     * @param refreshVisibility the new refresh visibility
+     */
+    public void setRefreshVisibility(Boolean refreshVisibility) {
+        if (refreshVisibility != null)
+              this.refreshVisibility = refreshVisibility.toString();
+        else
+              this.refreshVisibility = null;
+    }
 
-	/**
-	 * Gets the fly to view.
-	 *
-	 * @return the fly to view
-	 */
-	public Integer getFlyToView() {
-		return flyToView;
-	}
+    /**
+     * Sets the refresh visibility.
+     *
+     * @param refreshVisibility the new refresh visibility
+     */
+    public void setRefreshVisibility(Integer refreshVisibility) {
+        if (refreshVisibility != null)
+            this.refreshVisibility = Boolean.toString(refreshVisibility == 1);
+        else
+              this.refreshVisibility = null;
+    }
 
-	/**
-	 * Sets the fly to view.
-	 *
-	 * @param flyToView the new fly to view
-	 */
-	public void setFlyToView(Integer flyToView) {
-		this.flyToView = flyToView;
-	}
+
+    /**
+     * Gets the fly to view.
+     *
+     * @return the fly to view
+     */
+    public Boolean getFlyToView() {
+        if (flyToView != null)
+            return BooleanUtil.valueOf(flyToView);
+        else
+            return Boolean.FALSE;
+    }
+
+    /**
+     * Sets the fly to view.
+     *
+     * @param flyToView the new fly to view
+     */
+    public void setFlyToView(Boolean flyToView) {
+        if (flyToView != null)
+             this.flyToView = flyToView.toString();
+        else
+             this.flyToView = null;
+    }
+
+    /**
+     * Sets the fly to view.
+     *
+     * @param flyToView the new fly to view
+     */
+    public void setFlyToView(Integer flyToView) {
+        if (flyToView != null)
+             this.flyToView = Boolean.toString(flyToView == 1);
+        else
+             this.flyToView = null;
+    }
 
 	/**
 	 * Gets the link.
