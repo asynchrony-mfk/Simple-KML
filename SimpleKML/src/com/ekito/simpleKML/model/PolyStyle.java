@@ -33,11 +33,8 @@ public class PolyStyle extends ColorStyle {
      *
      * @return the fill
      */
-    public Boolean getFill() {
-        if (fill != null)
-            return BooleanUtil.valueOf(fill);
-        else
-            return Boolean.FALSE;
+    public String getFill() {
+        return fill;
     }
 
     /**
@@ -57,24 +54,17 @@ public class PolyStyle extends ColorStyle {
      *
      * @param fill the new fill
      */
-    public void setFill(Integer fill) {
-        if (fill != null)
-            this.fill = Boolean.toString(fill == 1);
-        else
-            this.fill = null;
+    public void setFill(String fill) {
+        this.fill = fill;
     }
-
 
     /**
      * Gets the outline.
      *
      * @return the outline
      */
-    public Boolean getOutline() {
-        if (outline != null)
-            return BooleanUtil.valueOf(outline);
-        else
-            return Boolean.FALSE;
+    public String getOutline() {
+        return outline;
     }
 
     /**
@@ -94,11 +84,8 @@ public class PolyStyle extends ColorStyle {
      *
      * @param outline the new outline
      */
-    public void setOutline(Integer outline) {
-        if (outline != null)
-            this.outline = Boolean.toString(outline == 1);
-        else
-            this.outline = null;
+    public void setOutline(String outline) {
+        this.outline = outline;
     }
 
 }
