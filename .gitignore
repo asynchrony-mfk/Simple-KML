@@ -4,3 +4,7 @@ gen/
 .project
 build/
 .gradle
+.idea
+*.iml
+*.ipr
+*.iws
