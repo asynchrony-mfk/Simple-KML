@@ -39,15 +39,15 @@ public class Polygon extends Geometry {
 	
 	/** The outer boundary is. */
 	@Element(required=true)
-	private Boundary outerBoundaryIs;
+	private OuterBoundary outerBoundaryIs;
 
     /** The inner boundary is. */
     //BYOUNG https://github.com/Ekito/Simple-KML/issues/6
     //@Element(required=false)
-    //private Boundary innerBoundaryIs;
+    //private InnerBoundary innerBoundaryIs;
     /** The inner boundary is list. */
-    @ElementList(name="innerBoundaryIs", entry="innerBoundaryIs", inline=true, type=Boundary.class, required=false)
-    private List<Boundary> innerBoundaryIsList;
+    @ElementList(name="innerBoundaryIs", entry="innerBoundaryIs", inline=true, type=InnerBoundary.class, required=false)
+    private List<InnerBoundary> innerBoundaryIsList;
     
     /**
      * Gets the extrude.
@@ -145,7 +145,7 @@ public class Polygon extends Geometry {
 	 *
 	 * @return the outer boundary is
 	 */
-	public Boundary getOuterBoundaryIs() {
+	public OuterBoundary getOuterBoundaryIs() {
 		return outerBoundaryIs;
 	}
 
@@ -154,7 +154,7 @@ public class Polygon extends Geometry {
 	 *
 	 * @param outerBoundaryIs the new outer boundary is
 	 */
-	public void setOuterBoundaryIs(Boundary outerBoundaryIs) {
+	public void setOuterBoundaryIs(OuterBoundary outerBoundaryIs) {
 		this.outerBoundaryIs = outerBoundaryIs;
 	}
 
@@ -163,7 +163,7 @@ public class Polygon extends Geometry {
 	 *
 	 * @return the inner boundary is
 	 */
-	public List<Boundary> getInnerBoundaryIsList() {
+	public List<InnerBoundary> getInnerBoundaryIsList() {
 		return innerBoundaryIsList;
 	}
 
@@ -172,7 +172,7 @@ public class Polygon extends Geometry {
 	 *
 	 * @param innerBoundaryIs the new inner boundary is
 	 */
-	public void setInnerBoundaryIsList(List<Boundary> innerBoundaryIs) {
+	public void setInnerBoundaryIsList(List<InnerBoundary> innerBoundaryIs) {
 		this.innerBoundaryIsList = innerBoundaryIs;
 	}
 }
