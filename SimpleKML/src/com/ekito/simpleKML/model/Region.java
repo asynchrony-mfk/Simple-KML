@@ -18,7 +18,7 @@ package com.ekito.simpleKML.model;
 import org.simpleframework.xml.Element;
 
 /**
- * A region contains a bounding box ({@link LatLonAltBox}) that describes an area of interest defined by geographic coordinates and altitudes. In addition, a Region contains an LOD (level of detail) extent ({@link Lod}) that defines a validity range of the associated Region in terms of projected screen size. A Region is said to be "active" when the bounding box is within the user's view and the LOD requirements are met. Objects associated with a Region are drawn only when the Region is active. When the <viewRefreshMode> is onRegion, the Link or Icon is loaded only when the Region is active. See the "Topics in KML" page on Regions for more details. In a Container or {@link NetworkLink} hierarchy, this calculation uses the Region that is the closest ancestor in the hierarchy.
+ * A region contains a bounding box ({@link LatLonAltBox}) that describes an area of interest defined by geographic coordinates and altitudes. In addition, a Region contains an LOD (level of detail) extent ({@link Lod}) that defines a validity range of the associated Region in terms of projected screen size. A Region is said to be "active" when the bounding box is within the user's view and the LOD requirements are met. Objects associated with a Region are drawn only when the Region is active. When the &lt;viewRefreshMode&gt; is onRegion, the Link or Icon is loaded only when the Region is active. See the "Topics in KML" page on Regions for more details. In a Container or {@link NetworkLink} hierarchy, this calculation uses the Region that is the closest ancestor in the hierarchy.
  */
 public class Region extends Object {
 	

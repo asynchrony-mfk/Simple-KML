@@ -41,7 +41,7 @@ public class InnerBoundary {
 	/**
 	 * Sets the linear ring.
 	 *
-	 * @param linearRing the new linear ring
+	 * @param linearRingList the new linear ring
 	 */
 	public void setLinearRingList(List<LinearRing> linearRingList) {
 		this.linearRingList = linearRingList;

@@ -40,7 +40,7 @@ public class StyleMap extends StyleSelector {
 	/**
 	 * Sets the pair.
 	 *
-	 * @param pair the new pair
+	 * @param pairList the new pair
 	 */
 	public void setPairList(List<Pair> pairList) {
 		this.pairList = pairList;

@@ -25,17 +25,17 @@ import org.simpleframework.xml.Namespace;
  * https://developers.google.com/kml/documentation/kmlreference#gxtrack
  * http://googlegeodevelopers.blogspot.com/2010/07/making-tracks-new-kml-extensions-in.html 
  * 
- * <ExtendedData>
-        <SchemaData schemaUrl="#schema">
-          <gx:SimpleArrayData name="cadence">
-            <gx:value>86</gx:value>
-            <gx:value>103</gx:value>
-            <gx:value>108</gx:value>
-            <gx:value>113</gx:value>
-            <gx:value>113</gx:value>
-            <gx:value>113</gx:value>
-            <gx:value>113</gx:value>
-          </gx:SimpleArrayData>
+ * &lt;ExtendedData&gt;
+        &lt;SchemaData schemaUrl="#schema"&gt;
+          &lt;gx:SimpleArrayData name="cadence"&gt;
+            &lt;gx:value&gt;86&lt;/gx:value&gt;
+            &lt;gx:value&gt;103&lt;/gx:value&gt;
+            &lt;gx:value&gt;108&lt;/gx:value&gt;
+            &lt;gx:value&gt;113&lt;/gx:value&gt;
+            &lt;gx:value&gt;113&lt;/gx:value&gt;
+            &lt;gx:value&gt;113&lt;/gx:value&gt;
+            &lt;gx:value&gt;113&lt;/gx:value&gt;
+          &lt;/gx:SimpleArrayData&gt;
           ...
  **/
 @Namespace(prefix="gx")
@@ -80,7 +80,7 @@ public class SimpleArrayData{
     /**
      * Sets the value.
      *
-     * @param when the new value
+     * @param value the new value
      */
     public void setValue(List<String> value) {
         this.value = value;

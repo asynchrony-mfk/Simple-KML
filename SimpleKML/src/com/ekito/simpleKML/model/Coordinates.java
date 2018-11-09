@@ -19,8 +19,8 @@ import java.util.ArrayList;
 
 /**
  * A list of Tuples consisting of floating point values for longitude, latitude, and altitude (in that order). Longitude and latitude values are in degrees, where
- * longitude ≥ −180 and <= 180
- * latitude ≥ −90 and ≤ 90
+ * longitude &ge; −180 and &le; 180
+ * latitude &ge; −90 and &le; 90
  * altitude values (optional) are in meters above sea level
  */
 public class Coordinates {

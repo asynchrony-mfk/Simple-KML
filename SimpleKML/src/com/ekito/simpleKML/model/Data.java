@@ -19,7 +19,7 @@ import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 
 /**
- * Creates an untyped name/value pair. The name can have two versions: name and displayName. The name attribute is used to identify the data pair within the KML file. The displayName element is used when a properly formatted name, with spaces and HTML formatting, is displayed in Google Earth. In the <text> element of <BalloonStyle>, the notation $[name/displayName] is replaced with <displayName>. If you substitute the value of the name attribute of the <Data> element in this format (for example, $[holeYardage], the attribute value is replaced with <value>. By default, the Placemark's balloon displays the name/value pairs associated with it.
+ * Creates an untyped name/value pair. The name can have two versions: name and displayName. The name attribute is used to identify the data pair within the KML file. The displayName element is used when a properly formatted name, with spaces and HTML formatting, is displayed in Google Earth. In the &lt;text&gt; element of {@link BalloonStyle}, the notation $[name/displayName] is replaced with &lt;displayName&gt;. If you substitute the value of the name attribute of the {@link Data} element in this format (for example, $[holeYardage], the attribute value is replaced with &lt;value&gt;. By default, the Placemark's balloon displays the name/value pairs associated with it.
  */
 public class Data {
 

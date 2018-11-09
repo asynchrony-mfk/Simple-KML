@@ -3,9 +3,10 @@ package com.ekito.simpleKML.model;
 public class BooleanUtil { 
 
     /**
-     * Convienence methods used getting the value of the Stringified
+     * Convenience methods used getting the value of the Stringified
      * boolean value (0/1 false/true FALSE/TRUE).
-     * @returns null, Boolean.TRUE, Boolean.FALSE
+     * @param value stringified boolean value (0/1 false/true FALSE/TRUE)
+     * @return null, Boolean.TRUE, Boolean.FALSE
      */
     static public Boolean valueOf(String value) { 
          if (value == null)
