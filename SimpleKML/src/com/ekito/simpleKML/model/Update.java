@@ -32,9 +32,9 @@ public class Update {
 
 	/** The crud list. */
 	@ElementListUnion({
-		@ElementList(entry="Change", inline=true, type=Change.class),
-		@ElementList(entry="Create", inline=true, type=Create.class),
-		@ElementList(entry="Delete", inline=true, type=Delete.class),
+		@ElementList(entry="Change", inline=true, type=Change.class, required=false),
+		@ElementList(entry="Create", inline=true, type=Create.class, required=false),
+		@ElementList(entry="Delete", inline=true, type=Delete.class, required=false),
 	})
 	private List<UpdateProcess> crudList;
 
