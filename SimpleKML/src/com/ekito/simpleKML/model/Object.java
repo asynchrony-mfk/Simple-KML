@@ -43,4 +43,27 @@ public abstract class Object {
 	public void setId(String id) {
 		this.id = id;
 	}
+
+
+	/** The targetId. */
+	@Attribute(required=false)
+	private String targetId;
+
+	/**
+	 * Gets the targetId.
+	 *
+	 * @return the targetId
+	 */
+	public String getTargetId() {
+		return targetId;
+	}
+
+	/**
+	 * Sets the targetId.
+	 *
+	 * @param targetId the new targetId
+	 */
+	public void setTargetId(String targetId) {
+		this.targetId = targetId;
+	}
 }
