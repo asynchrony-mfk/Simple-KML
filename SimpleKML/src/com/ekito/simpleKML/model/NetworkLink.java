@@ -16,6 +16,7 @@
 package com.ekito.simpleKML.model;
 
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementUnion;
 
 
 /**
@@ -30,9 +31,12 @@ public class NetworkLink extends Feature {
     @Element(required=false)
     private String flyToView;             // boolean 0/1 false/true
 
-	/** The link. */
-	@Element(name="Link",required=false)
-	private Link link;
+	/** The link. Backwards compatible with deprecated Url element */
+    @ElementUnion({
+            @Element(name="Link", type=Link.class,required=false),
+            @Element(name="Url", type=Link.class,required=false)
+    })
+    private Link link;
 
     /**
      * Gets the refresh visibility.
