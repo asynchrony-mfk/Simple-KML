@@ -136,7 +136,7 @@ public abstract class Feature extends Object {
         if (visibility != null)
             return BooleanUtil.valueOf(visibility);
         else
-            return Boolean.FALSE;
+            return Boolean.TRUE;
     }
 
     /**
